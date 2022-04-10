@@ -12,7 +12,6 @@ def _get_ret(close, span=100, days=None, seconds=None):
     prev_idx = pd.Series(use_idx, index=close.index)
     prev_idx = prev_idx[prev_idx > 0]
     # Get rid of duplications in index
-    prev_idx = prev_idx.drop_duplicates()
     ret = close[prev_idx.index] / close[prev_idx].values - 1
     return ret
 
